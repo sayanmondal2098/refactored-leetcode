@@ -1,5 +1,10 @@
 class P237 {
     // access only gfoven to the particular node
+    class ListNode {
+             int val;
+             ListNode next;
+             ListNode(int x) { val = x; }
+         }
     public void deleteNode(ListNode node) {
 
         node.val = node.next.val;
