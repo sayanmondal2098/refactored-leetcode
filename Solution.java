@@ -2,24 +2,27 @@ import java.util.Arrays;
 import java.util.List;
 
 class Solution {
-    public int[] rotatedArray(int[] arr, int n) {
-        while (n>0) {
-            int temp = arr[arr.length -1];
-            
-            for (int j = arr.length-2; j >= 0; j--) {
-                arr[j+1] = arr[j];
+
+    public int[] twoSum(int[] numbers, int target) {
+        for (int i = 0; i < numbers.length-1; i++) {
+            int find = target - numbers[i];
+            for (int j = i+1; j < numbers.length; j++) {
+                if (numbers[j]==find) {
+                    return new int[]{i+1, j+1};
+                }else   if (numbers[j]>find) {
+                    break;
+                }
             }
-            arr[0] = temp;
-            n--;
         }
-        return arr;
+        return null;
     }
 
+
     public static void main(String[] args) {
-        int testarr[] = {1,2,3,4,5,6};
-        int finalarr[] = new Solution().rotatedArray(testarr, 4);
-        for (int i = 0; i < finalarr.length; i++) {
-            System.out.println(finalarr[i]);
+        int testarr[] = {0,1,0,3,12};
+        testarr =  new Solution().twoSum(testarr,0);
+        for (int i = 0; i < testarr.length; i++) {
+            System.out.println(testarr[i]);
         }
     }
 }
