@@ -3,26 +3,19 @@ import java.util.List;
 
 class Solution {
 
-    public int[] twoSum(int[] numbers, int target) {
-        for (int i = 0; i < numbers.length-1; i++) {
-            int find = target - numbers[i];
-            for (int j = i+1; j < numbers.length; j++) {
-                if (numbers[j]==find) {
-                    return new int[]{i+1, j+1};
-                }else   if (numbers[j]>find) {
-                    break;
-                }
-            }
-        }
-        return null;
+    public String reverseWords(String s) {
+        StringBuilder ans = new StringBuilder();
+        ans.append(s);
+        System.out.println(ans[0]);
+        ans.reverse();
+        return ans.toString();
     }
 
 
     public static void main(String[] args) {
-        int testarr[] = {0,1,0,3,12};
-        testarr =  new Solution().twoSum(testarr,0);
-        for (int i = 0; i < testarr.length; i++) {
-            System.out.println(testarr[i]);
-        }
+        String input = "Geeks For Test";
+        Solution sol = new Solution();
+        String output = sol.reverseWords(input);
+        System.out.println(output);
     }
 }
