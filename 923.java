@@ -1,10 +1,6 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+class P923 {
 
-class Solution {
-
+    //large no and sum using 3 pointer
     public int threeSumMulti(int[] arr, int target) {
         int mod = 1000000007;
         int result = 0;
@@ -20,14 +16,5 @@ class Solution {
             }
         }
         return result;
-    }
-
-
-    public static void main(String[] args) {
-        String input = "IV";
-        int x = 101;
-        Solution sol = new Solution();
-        int output = sol.romanToInt(input);
-        System.out.println(output);
     }
 }
