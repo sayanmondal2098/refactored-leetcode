@@ -8,8 +8,10 @@
 |  28/03/2022  | Array and Algo I            |         283,167                                       |
 |  29/03/2022  | Array and Algo I            |         287                                           |
 |  30/03/2022  | String Reverse Problem      |         557, 344                                      |
-|  1/04/2022   | String Reverse Problem      |         9,                                       |
-|  6/04/2022   | 3 Pointer Sum               |         923,                                       |
+|  1/04/2022   | String Reverse Problem      |         9,                                            |
+|  6/04/2022   | 3 Pointer Sum               |         923,                                          |
+|  7/05/2022   | Longest Common Prefix       |         14,                                           |
+
 
 
 
