@@ -1,33 +1,24 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-class Solution {
-
-    public int threeSumMulti(int[] arr, int target) {
-        int mod = 1000000007;
-        int result = 0;
-        for (int i = 0; i < arr.length; i++) {
-            int count[] = new int[101];
-            for (int j = i+1; j < arr.length; j++) {
-                int k = target - arr[i] - arr[j];   
-                if (k>=0 &&  k <=100 && count[k] >0 )  {
-                    result += count[k];
-                    result %= mod;
-                }
-                count[arr[j]]++;
-            }
+import java.util.*;
+ 
+public class Solution
+{
+    public boolean containsDuplicate(int[] nums) {
+        int l = nums.length;
+        for (int i=0; i<l; i++) {
+           for (int j=i+1; j<l; j++) {
+              if (nums[i] == nums[j]) {
+                 return true;
+              }
+           }
         }
-        return result;
+        return false;
     }
-
-
-    public static void main(String[] args) {
-        String input = "IV";
-        int x = 101;
-        Solution sol = new Solution();
-        int output = sol.romanToInt(input);
-        System.out.println(output);
+ 
+    /* Driver Function to test other function */
+    public static void main(String[] args)
+    {
+        Solution gfg = new Solution();
+        String[] input = {"flower","flow","flight"};
+        System.out.println( "The longest Common Prefix is : " );
     }
 }
