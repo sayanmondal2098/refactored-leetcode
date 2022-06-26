@@ -3,15 +3,16 @@ import java.util.*;
 public class Solution
 {
     public int maxScore(int[] cardPoints, int k) {
-        int a = cardPoints.length-1;
-        Arrays.sort(cardPoints);
-        System.out.println(a);
-        int res = 0;
-        for (int i = 0; i<k; i++) {
-            res += cardPoints[a];
-            a = a-1;
+        int total = 0, best_total = 0;
+        for (int i = 0; i < k; i++) {
+            total += cardPoints[i];
         }
-        return res;
+        best_total = total;
+        for (int i = k-1, j = cardPoints.length-1; i >= 0;i--,j--) {
+            total += -cardPoints[i] + cardPoints[j];
+            best_total = Math.max(best_total, total);
+        }
+        return best_total;
     }
  
     /* Driver Function to test other function */
