@@ -2,24 +2,27 @@ import java.util.*;
  
 public class Solution
 {
-    public int maxScore(int[] cardPoints, int k) {
-        int total = 0, best_total = 0;
-        for (int i = 0; i < k; i++) {
-            total += cardPoints[i];
+    public int maxProfit(int[] prices) {
+        int max_profit = 0, buy = 0;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i]<buy) {
+                buy = prices[i];
+            }
+            else if (max_profit < prices[i] - buy) {
+                max_profit = prices[i] - buy;
+            }
         }
-        best_total = total;
-        for (int i = k-1, j = cardPoints.length-1; i >= 0;i--,j--) {
-            total += -cardPoints[i] + cardPoints[j];
-            best_total = Math.max(best_total, total);
-        }
-        return best_total;
+        return max_profit;
     }
  
     /* Driver Function to test other function */
     public static void main(String[] args)
     {
         Solution gfg = new Solution();
-        int [] cardPoints = {9,7,7,9,7,7,9}; int k = 7;
-        System.out.println(gfg.maxScore(cardPoints, k));
+        int [] cardPoints = {9,7,7,9,7,7,9}; int k = 18;
+        System.out.println(gfg.twoSum(cardPoints, k));
+        for (int num : gfg.twoSum(cardPoints, k)) {
+            System.out.print(num + " ");
+        }
     }
 }
