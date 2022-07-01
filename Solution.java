@@ -5,14 +5,16 @@ import java.util.*;
 // solution idea I : Check the last digit , if its 9 , then increase the new array size by one , other wise copy and increase the last element by one
 public class Solution
 {
-    public int maxProfit(int[] prices) {
-        int ans = 0;
-        for (int i = 1; i < prices.length; i++) {
-            if (prices[i] > prices[i-1]) {
-                ans += prices[i] - prices[i - 1];
+    public int pivotIndex(int[] nums) {
+        int index = 0;
+        int sum = Arrays.stream(nums).sum();
+        for (int i = 0; i < nums.length; i++) {
+            if (index == sum -index - nums[i]) {
+                return i;
             }
+            index += nums[i];
         }
-        return ans;
+        return -1;
     }
  
     /* Driver Function to test other function */
