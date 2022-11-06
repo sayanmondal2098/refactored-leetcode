@@ -5,16 +5,23 @@ import java.util.*;
 // solution idea I : Check the last digit , if its 9 , then increase the new array size by one , other wise copy and increase the last element by one
 public class Solution
 {
-    public int pivotIndex(int[] nums) {
-        int index = 0;
-        int sum = Arrays.stream(nums).sum();
-        for (int i = 0; i < nums.length; i++) {
-            if (index == sum -index - nums[i]) {
-                return i;
+    public boolean isValidParenthesis(String s) {
+        Stack<Character> charactersStack = new Stack<>();
+        for (char c: s.toCharArray()) {
+            if (c == '(' || c == '{' || c == '[') {
+                charactersStack.push(c);
+            } else if(c == ')' && !charactersStack.isEmpty() && charactersStack.peek()=='('){
+                charactersStack.pop();
+            } else if(c == '}' && !charactersStack.isEmpty() && charactersStack.peek()=='{'){
+                charactersStack.pop();
+            } else if(c == ']' && !charactersStack.isEmpty() && charactersStack.peek()=='['){
+                charactersStack.pop();
+            } else {
+                return false;
             }
-            index += nums[i];
         }
-        return -1;
+
+        return charactersStack.isEmpty();
     }
  
     /* Driver Function to test other function */
@@ -22,7 +29,7 @@ public class Solution
     {
         Solution gfg = new Solution();
         int [] cardPoints = {9,8,7,6,5,4,3,2,1,0}; int k = 18;
-        gfg.plusOne(cardPoints);
+        System.out.println(gfg.isValidParenthesis("()[]{}([{}])"));
         
     }
 }
